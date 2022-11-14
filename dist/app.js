@@ -1,0 +1,27 @@
+"use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+const express_1 = __importDefault(require("express"));
+const morgan_1 = __importDefault(require("morgan"));
+const cors_1 = __importDefault(require("cors"));
+const body_parser_1 = __importDefault(require("body-parser"));
+const helmet_1 = __importDefault(require("helmet"));
+const User_Routes_1 = __importDefault(require("./routes/User.Routes"));
+const Mark_Routes_1 = __importDefault(require("./routes/Mark.Routes"));
+const Subject_Routes_1 = __importDefault(require("./routes/Subject.Routes"));
+const Student_Routes_1 = __importDefault(require("./routes/Student.Routes"));
+const Auth_Routes_1 = __importDefault(require("./routes/Auth.Routes"));
+const app = (0, express_1.default)();
+app.use((0, morgan_1.default)('dev'));
+app.use((0, cors_1.default)());
+app.use((0, helmet_1.default)());
+app.use(body_parser_1.default.json());
+app.use(express_1.default.json());
+app.use(User_Routes_1.default);
+app.use(Mark_Routes_1.default);
+app.use(Subject_Routes_1.default);
+app.use(Student_Routes_1.default);
+app.use(Auth_Routes_1.default);
+exports.default = app;
