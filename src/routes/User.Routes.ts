@@ -28,7 +28,6 @@ const checkScopes = requiredScopes('access');
 router.get('/user/:id',getByID)
 router.post('/user',add)
 router.put('/user/:id', update)
-//router.delete('/user/:id',del)
 router.delete('/user/:id',remove)
 
 export default router
