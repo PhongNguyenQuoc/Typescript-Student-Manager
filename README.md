@@ -1,6 +1,6 @@
 # Typescript-Student-Manager
 
-Firstly, you must install Node's libries. Run `yarn install`.
+Firstly, you must install Node's libraies. Run `yarn install`.
 
 ## Development server
 
