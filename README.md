@@ -1,4 +1,13 @@
 # Typescript-Student-Manager
-# Sau khi clone về thì phải cài các thư viện cho project bằng cách mở terminal trong project và gõ: yarn install
-# Để chạy project: yarn dev
-# Để chuyển project từ typescrip về javascript: yarn build
+
+Firstly, you must install Node's libries. Run 'yarn install'
+
+## Development server
+
+Run `yarn dev` for a dev server. Navigate to `http://localhost:3000/`. The application will automatically reload if you change any of the source files.
+
+## Convert to Javascript
+
+Run `yarn build` to build the project. The build artifacts will be stored in the `dist/` directory.
+
+
