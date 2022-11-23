@@ -6,17 +6,10 @@ export const checkJwt = (req: Request, res: Response, next: NextFunction) => {
 
   //Get the jwt token from the head
   const token = <string>req.headers.authorization;
-
-
-  console.log("eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjI4LCJ1c2VybmFtZSI6ImFkbWluIiwiaWF0IjoxNjY2NzIyMTczLCJleHAiOjE2NjY3MjU3NzN9.Zojyqp2vWcRixpPYD2qD3KLTAzm8cSqLgUtcVQfJJeY");
+  console.log(token);
   let jwtPayload;
 
-  if (!token) {
-    return res.status(403).send({
-      message: "No token provided!"
-    })
-  }
-  
+
   //Try to validate the token and get data
   try {
     jwtPayload = <any>jwt.verify(token, config.jwtSecret);
@@ -31,8 +24,8 @@ export const checkJwt = (req: Request, res: Response, next: NextFunction) => {
 
   //The token is valid for 1 hour
   //We want to send a new token on every request
-  const { userId, username } = jwtPayload;
-  const newToken = jwt.sign({ userId, username }, config.jwtSecret, {
+  const { userId, username,role } = jwtPayload;
+  const newToken = jwt.sign({ userId, username,role }, config.jwtSecret, {
     expiresIn: "1h"
   });
   res.setHeader("token", newToken);
