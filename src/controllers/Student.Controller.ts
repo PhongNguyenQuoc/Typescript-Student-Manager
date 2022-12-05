@@ -3,7 +3,7 @@ import { addStudent, getData, getStudentById, removeStudent, updateStudent } fro
 
 export const index = async(req: Request, res: Response) => {
     try {
-        const student = await getData
+        const student = await getData()
         return res.json (student)
     }
     catch(error) {

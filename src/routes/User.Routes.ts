@@ -1,7 +1,6 @@
 import {Router} from 'express'
 import {index,add,update,remove, getByID} from "../controllers/User.Controller"
 import { checkRole } from "../middlewares/CheckRole.middleware";
-import {Roles} from "../utils/EnumRoles"
 import { checkJwt } from './../middlewares/CheckJwt.middleware';
 
 const router = Router()

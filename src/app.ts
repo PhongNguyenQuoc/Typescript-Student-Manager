@@ -6,7 +6,10 @@ import helmet from "helmet";
 import indexRouters from './routes/Index.Routes'
 const app = express();
 app.use(morgan('dev'))
-app.use(cors());
+app.use(cors({
+    methods: '*',
+    optionsSuccessStatus: 200
+}));
 app.use(helmet());
 app.use(bodyParser.json());
 app.use(express.json())
