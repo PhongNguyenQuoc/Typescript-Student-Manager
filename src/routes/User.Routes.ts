@@ -8,8 +8,8 @@ const router = Router()
 router.get('/user',[checkJwt, checkRole(["admin"])], index)
 // router.get('/user',index)
 router.get('/user/:id',getByID)
-router.post('/user',add)
-router.put('/user/:id', update)
+router.post('/user',[checkJwt, checkRole(["admin"])],add)
+router.put('/user/:id',[checkJwt, checkRole(["admin"])], update)
 router.delete('/user/:id',remove)
 
 export default router

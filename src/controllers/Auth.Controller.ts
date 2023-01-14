@@ -6,7 +6,6 @@ import { User } from "./../entities/User";
 
 export const Login = async (req: Request, res: Response) => {
   let { username, password } = req.body;
-  console.error("username")
   if (!(username && password)) {
     res.status(400).send();
   } else {

@@ -27,6 +27,7 @@ export const filterByStudent = async (req: Request, res: Response) => {
 
 export const add = async (req: Request, res: Response) => {
     try {
+        
         await addMark(req.body)
         return res.sendStatus(204)
     }

@@ -49,6 +49,7 @@ export const login = async (username: string, pwd: string) =>
   await userRepository.findOneOrFail({
     where: {
       user_name: username,
-      password: pwd
+      password: pwd,
+      status: Status.ACTIVE,
     }
   })

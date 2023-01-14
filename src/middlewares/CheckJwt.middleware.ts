@@ -6,17 +6,14 @@ export const checkJwt = (req: Request, res: Response, next: NextFunction) => {
 
   //Get the jwt token from the head
   const token = <string>req.headers.authorization;
-  console.log(token);
   let jwtPayload;
 
 
   //Try to validate the token and get data
   try {
     jwtPayload = <any>jwt.verify(token, config.jwtSecret);
-    console.log(token)
     res.locals.jwtPayload = jwtPayload
   } catch (error) {
-    console.log("user")
     //If token is not valid, respond with 401 (unauthorized)
     res.status(401).send();
     return;

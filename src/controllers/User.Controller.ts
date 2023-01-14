@@ -31,7 +31,7 @@ export const getByID = async (req: Request, res: Response) => {
     try {
         const user = await getUserById(parseInt(req.params.id))
         if(!user) return res.status(404).json({message: "User does not exits"})
-        return res.status(302).json(user)
+        return res.json([user])
     }
     catch(error) {
         if(error instanceof Error)
@@ -63,6 +63,8 @@ export const add = async (req: Request, res: Response) => {
  */
 export const update = async(req: Request, res: Response) => {
     try {
+        console.log(req.body);
+        
         const user = await getUserById(parseInt(req.params.id))
         if(!user) return res.status(404).json({message: "User does not exits"})
         await updateUser(req.body,parseInt(req.params.id))

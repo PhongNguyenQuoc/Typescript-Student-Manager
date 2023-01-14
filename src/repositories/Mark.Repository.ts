@@ -22,7 +22,10 @@ export const getMarkByAll = async (subjectId: number, studentId: number) => awai
     }
 })
 
-export const addMark = async (data: any) => await markRepository.save(data)
+export const addMark = async (data: Mark) =>{
+    
+    await markRepository.save(data);
+} 
 
 export const updateMark = async (data: any, id: number) => await markRepository.update(id, data)
 

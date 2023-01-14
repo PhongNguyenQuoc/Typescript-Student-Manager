@@ -1,13 +1,14 @@
 
 import { Request, Response } from "express"
-import { Subject } from "../entities/Subject"
-import { addSubject, getData, getSubjectById, updateSubject } from "../repositories/Subject.Repository"
+import { addSubject, getall, getSubjectById, updateSubject } from "../repositories/Subject.Repository"
+import { getAll } from "../repositories/User.Repository";
 import { removeSubject } from './../repositories/Subject.Repository';
+import { Subject } from './../entities/Subject';
 
 export const index = async(req: Request, res: Response) => {
     try {
-        const users = await getData()
-        return res.json (users)
+        const u = await getall()
+        return res.json (u)
     }
     catch(error) {
         if(error instanceof Error)
@@ -34,6 +35,8 @@ export const update = async(req: Request, res: Response) => {
         return res.sendStatus(204)
     }
     catch(error){
+        console.log(req.body);
+        
         if(error instanceof Error)
         return res.status(400).json(error.message)
     }

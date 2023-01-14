@@ -25,6 +25,7 @@ export const add = async (req: Request, res: Response) => {
 
 export const update = async(req: Request, res: Response) => {
     try {
+        
         const student = await getStudentById(parseInt(req.params.id))
         if(!student) return res.status(404).json({message: "Student does not exits"})
         await updateStudent(req.body, parseInt(req.params.id))

@@ -9,9 +9,22 @@ export class Mark extends BaseEntity{
       })
     id : number
     @Column({
-        type:'int'
+        type:'float',
+        default: null
     })
-    mark: number
+    grade_first: number
+
+    @Column({
+        type:'float',
+        default: null
+    })
+    grade_second: number
+
+    @Column({
+        type:'float',
+        default: null
+    })
+    grade_third: number
 
     @ManyToOne(
         () => Subject,

@@ -10,6 +10,8 @@ export const getData = async () => await subjectRepository.find({
     }
 })
 
+export const getall = async () => await subjectRepository.find()
+
 export const addSubject = async (data: any) => await subjectRepository.save(data);
 
 export const removeSubject = async (id: number) => await subjectRepository.update(id,{
